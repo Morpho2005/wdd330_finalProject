@@ -1,0 +1,102 @@
+/******* Change Box Model ***************/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body{
+  width: 90%;
+  padding: 7px;
+  margin: 0 5%;
+  border: 3px solid black;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+}
+
+figure{
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.display{
+  position: absolute; 
+}
+
+.navigation{
+  background-color: black;
+}
+
+.navigation ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+
+.navigation li{
+  padding: 10px;
+  font-size: x-large;
+}
+
+.navigation a{
+  color: white;
+}
+
+.siteName{
+  margin: 1rem 0;
+  font-size: xx-large;
+}
+
+.news-item {
+  list-style: none;
+  background-color: black;
+  color: white;
+  margin: 10px;
+  border: 5px solid black;
+}
+
+.news-item p{
+  padding-left: 8px;
+}
+
+.news-item a{
+  background-color: silver;
+  min-width: 100%;
+  border: 1px solid black;
+}
+
+.news-item:nth-child(even) {
+  background-color: white;
+  color: black;
+}
+
+.game-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 10px;
+  justify-items: center;
+}
+
+.game-item {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+}
