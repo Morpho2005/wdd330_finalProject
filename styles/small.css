@@ -1,0 +1,9 @@
+@media screen and (max-width: 500px) {
+    .game{
+        grid-template-columns: 150px 1fr 1fr;
+    }
+
+    .game ul{
+        display: none;
+    }
+}

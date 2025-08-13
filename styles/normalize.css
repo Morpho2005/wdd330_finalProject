@@ -1,0 +1,148 @@
+:root{
+    --main-color: #000000;
+    --header-color: #00FF00;
+    --text-color: #ffffff;
+    --second-color: #003013;
+    --header-text: 'Shadows Into Light Two';
+    --body-text: 'Roboto';
+}
+
+body {
+    background-color: var(--second-color);
+    margin: 0;
+}
+
+p{
+    color: var(--text-color);
+}
+
+nav ul{
+    margin: 0;
+    padding-inline-start: 10px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+li{
+    margin: 10px;
+}
+
+h1 {
+    color: var(--header-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+h1 img {
+    max-width: 100px;
+}
+
+header{
+    font-family: var(--header-text), serif;
+    display: grid;
+    color: var(--header-color);
+    background-color: var(--main-color);
+    width: 100%;
+    min-height: 4rem;
+}
+
+section {
+    color: var(--text-color);
+    background-color: var(--main-color);
+    max-height: 13rem;
+}
+
+img{
+    max-height: 10rem;
+    color: var(--text-color);
+}
+
+a {
+    color: var(--text-color);
+    padding: 15px;
+}
+
+button{
+    padding: 10px;
+}
+
+dialog:modal {
+    max-width: 80%;
+    background-color: var(--main-color);
+    align-self: center;
+}
+
+::backdrop {
+    background-color: #0000002b;
+}
+
+dialog:modal section{
+    max-height: none;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+dialog:modal section form{
+    grid-column-start: span 2;
+}
+
+dialog:modal section p{
+    grid-column-start: span 2;
+}
+
+main{
+    max-width: 100%  ;
+    background-color: var(--second-color);
+    margin: 0;
+}
+
+ul{
+    padding: 0;
+}
+
+footer {
+    max-height: 10rem;
+    color: var(--header-color);
+    background-color: var(--main-color);
+}
+
+footer p{
+    text-align: center
+}
+
+.game {
+    background-color: var(--main-color);
+    margin: 0;
+    display: grid;
+    grid-template-columns: 150px 1fr 1fr 150px;
+    justify-items: center;
+}
+
+.game img{
+    max-width: 100px;
+    margin: 10px 25px;
+}
+
+.game p{
+    align-content: center;
+}
+
+.game ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--text-color);
+    list-style: none;
+}
+
+.game button{
+    align-self: center;
+}
+
+.game:nth-child(even){
+    background-color: rgb(32, 32, 32);
+}
