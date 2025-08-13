@@ -63,6 +63,11 @@ li {
   color: white;
 }
 
+.navigation a:hover{
+  background-color: silver;
+  color: black;
+}
+
 .siteName{
   margin: 1rem 0;
   font-size: xx-large;
@@ -80,6 +85,11 @@ li {
   color: white;
   margin: 10px;
   border: 5px solid black;
+  transition: transform 0.3s;
+}
+
+.news-item:hover {
+  transform: translate(-10px, 0);
 }
 
 .news-item p{
@@ -90,6 +100,11 @@ li {
   background-color: silver;
   min-width: 100%;
   border: 1px solid black;
+}
+
+.news-item a:hover {
+  background-color: white;
+  color: black;
 }
 
 .news-item:nth-child(even) {
@@ -109,6 +124,15 @@ li {
   padding: 10px;
   margin: 10px;
   background-color: white;
+  transition: transform 0.5s;
+}
+
+.game-item:hover {
+  transform: scale(1.2);
+}
+
+.game-filter {
+  margin: 20px 0;
 }
 
 .logo {

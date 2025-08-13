@@ -9,7 +9,16 @@ const gameCont = {}
 gameCont.buildGameList = async (req, res, next) => {
     try {
         const data = await gameModel.getGames()
-        const list = await utilities.buildGameList(data)
+        let list = await utilities.buildGameList(data)
+        if (req.query.genre) {
+            let filtered = []
+            for (let game of data) {
+                if (game.genre === req.query.genre) {
+                    filtered.push(game)
+                }
+            }
+            list = await utilities.buildGameList(filtered)
+        }
         const filter = await utilities.buildGameFilter(data)
         res.render("games/list", {
             title: "Game List",
@@ -32,31 +41,6 @@ gameCont.buildByGameId = async (req, res, next) => {
         res.render("games/detail", {
             title: game.title,
             game
-        })
-    } catch (error) {
-        next(error)
-    }
-}
-
-/* ***************************
- *  Handle game filtering
- ***************************/
-gameCont.filterGameList = async (req, res, next) => {
-    try {
-        const genre = req.query.genre
-        const data = await gameModel.getGames()
-        let filtered = []
-        for (let game of data) {
-            if (game.genre === genre) {
-                filtered.push(game)
-            }
-        }
-        const list = await utilities.buildGameList(filtered)
-        const filter = await utilities.buildGameFilter(data)
-        res.render("games/list", {
-            title: "Game List",
-            list,
-            filter
         })
     } catch (error) {
         next(error)

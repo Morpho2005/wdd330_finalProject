@@ -7,8 +7,6 @@ const gameController = require("../controllers/gameController");
 router.get("/", gameController.buildGameList)
 // Route to build individual game view
 router.get("/id/:gameId", gameController.buildByGameId);
-// Route to handle game filtering
-router.get("/filter/", gameController.filterGameList);
 
 // Export the router
 module.exports = router;
