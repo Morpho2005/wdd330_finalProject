@@ -6,6 +6,7 @@
  * Require Statements
  *************************/
 const express = require("express")
+const session = require("express-session")
 const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
@@ -16,7 +17,6 @@ const baseController = require("./controllers/baseController")
 const utilities = require("./utilities/")
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
-const session = require("express-session")
 
 
 /* ***********************

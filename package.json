@@ -21,8 +21,10 @@
     "express-messages": "^1.0.1",
     "express-session": "^1.18.2",
     "express-validator": "^7.2.1",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
     "node-fetch": "^3.3.2",
+    "node-localstorage": "^3.0.5",
     "pg": "^8.8.0",
     "request": "^2.88.2"
   },

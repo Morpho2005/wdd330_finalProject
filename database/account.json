@@ -1,16 +1,23 @@
 [
-    {
-        "id": 0,
-        "username": "user1",
-        "email": "user1@example.com",
-        "password": "pass1",
-        "favorites": []
-    },
-    {
-        "id": 1,
-        "username": "user2",
-        "email": "user2@example.com",
-        "password": "pass2",
-        "favorites": []
-    }
+  {
+    "id": 1,
+    "account_username": "Josef",
+    "account_email": "cardgames@example.com",
+    "account_password": "$2b$10$tTEDjpdcEORdxoURNnM9tejkrN8SwY.5mH53sPCvpyvvyDIGnX35.",
+    "favorites": []
+  },
+  {
+    "id": 2,
+    "account_username": "Josef",
+    "account_email": "motorcycles@330.edu",
+    "account_password": "$2b$10$fZQV/wuQFHGqTkVX.fydBurBLBV4hW8o/73gRd1zX4dVfEMezLqqC",
+    "favorites": []
+  },
+  {
+    "id": 3,
+    "account_username": "Josef",
+    "account_email": "happy@340.edu",
+    "account_password": "$2b$10$xbYP1Gyft5Yld.t2bTywP.JbcsLccfo0xHTbFY6lJ1edgW8W5zwdS",
+    "favorites": []
+  }
 ]

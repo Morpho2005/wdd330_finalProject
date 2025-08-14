@@ -1,6 +1,7 @@
 const express = require("express")
 const Util = {}
 const jwt = require("jsonwebtoken")
+require("dotenv").config()
 
 Util.getNews = async function (req, res) {
     try {
@@ -84,14 +85,7 @@ Util.buildGameFilter = async function(data){
  * Constructs the tool HTML link
  ************************** */
 Util.makeGreeting = (req, res) => {
-  let greeting
-  if (res.locals.accountData.account_type  == 'Client') {
-    greeting = `<h2>Hello ${res.locals.accountData.account_firstname}</h2>`
-  } else {
-    greeting = `<h2>Hello ${res.locals.accountData.account_firstname}</h2>`
-    greeting += `<h3> inventory management </h3>`
-    greeting += `<a href="/inv"><button>manage Inventory</button></a>`
-  }
+  let greeting = `<h2>Hello ${res.locals.accountData.account_username}</h2>`
   return greeting
 }
 

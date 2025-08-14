@@ -8,21 +8,13 @@ const utilities = require(".")
   * ********************************* */
 validate.registationRules = () => {
   return [
-    // firstname is required and must be string
-    body("account_firstname")
+    // username is required and must be string
+    body("account_username")
       .trim()
       .escape()
       .notEmpty()
       .isLength({ min: 1 })
-      .withMessage("Please provide a first name."), // on error this message is sent.
-
-    // lastname is required and must be string
-    body("account_lastname")
-      .trim()
-      .escape()
-      .notEmpty()
-      .isLength({ min: 2 })
-      .withMessage("Please provide a last name."), // on error this message is sent.
+      .withMessage("Please provide a username."), // on error this message is sent.
   
     // valid email is required and cannot already exist in the database
     body("account_email")
@@ -56,17 +48,16 @@ validate.registationRules = () => {
 * Check data and return errors or continue to registration
 * ***************************** */
 validate.checkRegData = async (req, res, next) => {
-  const { account_firstname, account_lastname, account_email } = req.body
+  const { account_username, account_email } = req.body
   let errors = []
   errors = validationResult(req)
+  tool = utilities.getTools()
   if (!errors.isEmpty()) {
-    let nav = await utilities.getNav()
     res.render("account/signUp", {
       errors,
+      tool,
       title: "Sign Up",
-      nav,
-      account_firstname,
-      account_lastname,
+      account_username,
       account_email,
     })
     return

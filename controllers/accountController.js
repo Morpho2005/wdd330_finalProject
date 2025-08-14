@@ -1,5 +1,5 @@
 const utilities = require("../utilities")
-const accountModel = require("../models/account-model")
+const accountModel = require("../models/account-model.js")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
@@ -33,7 +33,7 @@ async function buildSignUp(req, res, next) {
 * *************************************** */
 async function signUpAccount(req, res) {
   const tool = utilities.getTools()
-  const { account_firstname, account_lastname, account_email, account_password } = req.body
+  const { account_username, account_email, account_password } = req.body
 
   // Hash the password before storing
   let hashedPassword
@@ -50,8 +50,7 @@ async function signUpAccount(req, res) {
   }
 
   const regResult = await accountModel.signUpAccount(
-    account_firstname,
-    account_lastname,
+    account_username,
     account_email,
     hashedPassword
   )
@@ -59,7 +58,7 @@ async function signUpAccount(req, res) {
   if (regResult) {
     req.flash(
       "notice",
-      `Congratulations, you\'ve signed up ${account_firstname}. Please log in.`
+      `Congratulations, you\'ve signed up ${account_username}. Please log in.`
     )
     res.status(201).render("account/login", {
       title: "Login",
@@ -95,7 +94,7 @@ async function accountLogin(req, res) {
   }
   try {
     if (await bcrypt.compare(account_password, accountData.account_password)) {
-      delete accountData.account_password
+      delete accountData.password
       const accessToken = jwt.sign(accountData, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 3600 * 1000 })
       if(process.env.NODE_ENV === 'development') {
         res.cookie("jwt", accessToken, { httpOnly: true, maxAge: 3600 * 1000 })
@@ -172,8 +171,7 @@ async function buildUpdate(req, res, next) {
     title: "Update Account",
     tool,
     account_id: data.account_id,
-    account_firstname: data.account_firstname,
-    account_lastname: data.account_lastname,
+    account_username: data.account_username,
     account_email: data.account_email,
     errors: null
   })
@@ -186,14 +184,12 @@ async function updateName(req, res, next) {
   const tool = utilities.getTools()
   const {
     account_id,
-    account_firstname,
-    account_lastname,
+    account_username,
     account_email,
   } = req.body
   const updateResult = await accountModel.updateName(
     account_id,
-    account_firstname,
-    account_lastname,
+    account_username,
     account_email,
   )
 
@@ -206,8 +202,7 @@ async function updateName(req, res, next) {
     title: "Update Account",
     tool,
     account_id,
-    account_firstname,
-    account_lastname,
+    account_username,
     account_email,
     errors: null
     })
