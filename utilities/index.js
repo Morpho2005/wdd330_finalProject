@@ -85,7 +85,7 @@ Util.buildGameFilter = async function(data){
  * Constructs the tool HTML link
  ************************** */
 Util.makeGreeting = (req, res) => {
-  let greeting = `<h2>Hello ${res.locals.accountData.account_username}</h2>`
+  //let greeting = `<h2>Hello ${res.locals.accountData.account_username}</h2>`
   return greeting
 }
 
